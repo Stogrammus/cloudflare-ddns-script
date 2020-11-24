@@ -124,7 +124,7 @@ else
     #CFRECORD_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$CFZONE_ID/dns_records?name=$CFRECORD_NAME" -H "X-Auth-Email: $CFUSER" -H "X-Auth-Key: $CFKEY" -H "Content-Type: application/json"  | grep -Po '(?<="id":")[^"]*' | head -1 )
     # For OS Home Assistant: HassOS 5.5; os_version	5.4.74-v8; board rpi4-64; version: 0.117.6
     CFZONE_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=$CFZONE_NAME" -H "X-Auth-Email:$CFUSER" -H "Authorization: Bearer $CFKEY" -H "Content-Type:application/json" | jq '.result[0].id' | tr -d \" )
-	  CFRECORD_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$CFZONE_ID/dns_records?name=$CFRECORD_NAME" -H "X-Auth-Email:$CFUSER" -H "Authorization: Bearer $CFKEY" -H "Content-Type:application/json" | jq '.result[0].id' | tr -d \")
+    CFRECORD_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$CFZONE_ID/dns_records?name=$CFRECORD_NAME" -H "X-Auth-Email:$CFUSER" -H "Authorization: Bearer $CFKEY" -H "Content-Type:application/json" | jq '.result[0].id' | tr -d \")
     echo "$CFZONE_ID" > $ID_FILE
     echo "$CFRECORD_ID" >> $ID_FILE
     echo "$CFZONE_NAME" >> $ID_FILE
