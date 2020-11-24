@@ -1,4 +1,4 @@
-# Cloudflare DDNS Script
+# Cloudflare DDNS Script for HassOS 5.5
 
 Cloudflare API v4 Dynamic DNS Update in Bash, without unnecessary requests
 
